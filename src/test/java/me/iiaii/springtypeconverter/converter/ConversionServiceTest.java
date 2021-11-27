@@ -5,7 +5,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.convert.support.DefaultConversionService;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ConversionServiceTest {
 
@@ -24,6 +26,5 @@ public class ConversionServiceTest {
         assertThat(conversionService.convert("127.0.0.1:8080", IpPort.class)).isEqualTo(IpPort.of("127.0.0.1", 8080));
         assertThat(conversionService.convert(IpPort.of("127.0.0.1", 8080), String.class)).isEqualTo("127.0.0.1:8080");
     }
-
 
 }
